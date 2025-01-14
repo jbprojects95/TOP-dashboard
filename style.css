@@ -8,7 +8,7 @@
 }
 
 body {
-  color: #333;
+  /* color: #333; */
 }
 
 .grid-container {
@@ -35,20 +35,34 @@ nav {
   padding: 1rem 1.2rem;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 70px repeat(7, 50px) 100px;
+  grid-template-rows: 90px repeat(6, 50px) repeat(3, 50px) 50px;
   /* gap: 0.8rem; */
-  align-items: start;
+  align-items: center;
+}
+
+.sidebar-settings {
+  grid-row: 9/12;
 }
 
 .sidebar .logo {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  padding-bottom: 2rem;
+  gap: 1.1rem;
+  padding-bottom: 1rem;
+
+  position: relative;
+  top: -15px;
+
+  /* border-bottom: 1px solid #ffffffc4; */
+}
+
+.sidebar .logo p {
+  font-weight: 600;
+  font-size: 1.6rem;
 }
 
 .sidebar img {
-  width: 30px;
+  width: 35px;
   /* border: 1px solid red; */
 }
 
@@ -59,12 +73,21 @@ nav {
   gap: 1rem;
 
   padding-top: 1rem;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   /* border: 1px solid red; */
 }
 
 .nav-item a {
   text-decoration: none;
+  font-weight: 600;
+}
+
+.nav-item a:visited {
+  color: #000000;
+}
+
+.nav-item a:hover {
+  color: #ffff;
 }
 
 main {
