@@ -7,37 +7,110 @@
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
-body {
-  /* color: #333; */
-}
-
 .grid-container {
   /* text-align: center; */
-  min-height: 100vh;
+  min-height: 100dvh;
   /* padding: 1rem; */
 
   display: grid;
   grid-template-columns: 250px 3fr;
-  grid-template-rows: 150px 2fr;
+  grid-template-rows: auto 2fr;
   /* gap: 0.5rem; */
+  overflow: hidden;
 }
 
-nav {
+/*? ============================================================================= */
+/*? ||                              **NAVBAR**                                 || */
+/*? ============================================================================= */
+
+.nav-main {
   border: 1px solid red;
-
   grid-column: 2 / 3;
+
+  display: grid;
+  grid-template-columns: 2fr repeat(3, 150px);
+  grid-template-rows: repeat(2, 100px);
 }
+
+.search-item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 90%;
+  place-self: center;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  place-self: center;
+}
+
+.search-bar {
+  width: 90%;
+  min-width: 400px;
+  padding: 0.5rem 0.8rem;
+  border-radius: 15px;
+}
+
+.search-icon-placeholder::before {
+  content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='m19.6 21l-6.3-6.3q-.75.6-1.725.95T9.5 16q-2.725 0-4.612-1.888T3 9.5t1.888-4.612T9.5 3t4.613 1.888T16 9.5q0 1.1-.35 2.075T14.7 13.3l6.3 6.3zM9.5 14q1.875 0 3.188-1.312T14 9.5t-1.312-3.187T9.5 5T6.313 6.313T5 9.5t1.313 3.188T9.5 14'/%3E%3C/svg%3E");
+  padding: 0.5rem 1rem;
+  position: relative;
+  top: 4px;
+}
+
+.profile-greeting {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 2rem;
+  grid-row: 2;
+
+  /* outline: 1px solid red; */
+  padding: 0.5rem 1rem;
+  /* margin-left: 3rem; */
+  width: 90%;
+}
+
+.profile-greeting svg {
+  width: 80px;
+}
+
+.greeting-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+}
+
+.greeting-text p {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.greeting-text h2 {
+  font-size: 2.5rem;
+  font-weight: 500;
+}
+
+/*? ============================================================================= */
+/*? ||                              **SIDEBAR**                                || */
+/*? ============================================================================= */
 
 .sidebar {
   background-color: cornflowerblue;
   grid-row: 1 / 4;
 
-  padding: 1rem 1.2rem;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 90px repeat(6, 50px) repeat(3, 50px) 50px;
   /* gap: 0.8rem; */
+
   align-items: center;
+  padding: 1rem 1.2rem;
 }
 
 .sidebar-settings {
@@ -61,12 +134,12 @@ nav {
   font-size: 1.6rem;
 }
 
-.sidebar img {
+.sidebar svg {
   width: 35px;
   /* border: 1px solid red; */
 }
 
-.nav-item {
+.sidebar-item {
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -77,16 +150,21 @@ nav {
   /* border: 1px solid red; */
 }
 
-.nav-item a {
+.sidebar-item a {
   text-decoration: none;
   font-weight: 600;
+
+  /* !Flex here to make the SVG align with text if making icons clickable */
+  /* display: flex;
+  align-items: center;
+  gap: 1rem; */
 }
 
-.nav-item a:visited {
+.sidebar-item a:visited {
   color: #000000;
 }
 
-.nav-item a:hover {
+.sidebar-item a:hover {
   color: #ffff;
 }
 
