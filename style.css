@@ -1,3 +1,10 @@
+:root {
+  --teal-bg: #659aa5;
+  --hover-colour: #1e3f6d;
+  --accent-colour: #946b6b;
+  --off-white: rgb(252, 251, 241);
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -5,6 +12,10 @@
 
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+body {
+  background-color: var(--off-white);
 }
 
 .grid-container {
@@ -24,22 +35,17 @@
 /*? ============================================================================= */
 
 .nav-main {
-  /* border: 1px solid red; */
   grid-column: 2 / 3;
 
-  /* !Here i need to change it to two grid i think. 
-  /*!One for each for of the nav section */
   display: grid;
   grid-template-columns: auto minmax(0.2fr, 0.5fr) auto;
   grid-template-rows: repeat(2, auto);
 
   gap: 0.5rem;
-
-  /* padding-left: 2rem;
-  padding-right: 2rem;
-  padding-top: 1.5rem;
-  padding-bottom: 1rem; */
   padding: 2rem 2.5rem;
+
+  background-color: var(--teal-bg);
+  box-shadow: 0px 0px 10px 3px rgba(110, 111, 125, 0.8);
 }
 
 .search-item {
@@ -79,7 +85,7 @@
   grid-column: span 2;
 
   padding-left: 1rem;
-  /* outline: 1px solid red; */
+  color: var(--off-white);
 }
 
 .profile-greeting svg {
@@ -114,15 +120,6 @@
   grid-row: 2;
 }
 
-/* .nav-right {
-  display: grid;
-  grid-template-columns: repeat(3, auto);
-  gap: 1rem;
-  align-items: center;
-  justify-content: end;
-  grid-row: 2;
-} */
-
 .nav-btn {
   width: 20%;
   min-width: 100px;
@@ -140,10 +137,18 @@
 
   text-align: center;
   text-decoration: none;
-  background: cornflowerblue;
-  color: #ffffff;
+  background: var(--hover-colour);
+  color: var(--off-white);
   cursor: pointer;
+
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
+
+.nav-btn:hover {
+  background-color: var(--hover-colour);
+}
+
+/* ?--------PROFILE BANNER STYLING--------?*/
 
 .profile-banner {
   display: flex;
@@ -151,6 +156,7 @@
   justify-content: flex-end;
 
   gap: 1rem;
+  color: var(--off-white);
 }
 
 .banner-item {
@@ -168,7 +174,8 @@
 /*? ============================================================================= */
 
 .sidebar {
-  background-color: cornflowerblue;
+  background-color: var(--teal-bg);
+  /* background-color: #356bb6; */
   grid-row: 1 / 3;
 
   display: grid;
@@ -176,7 +183,11 @@
   grid-template-rows: 90px repeat(6, 50px) repeat(3, 50px) 50px;
 
   align-items: center;
-  padding: 1rem 1.2rem;
+  padding: 1.6rem 1rem;
+
+  border-right: 14px solid var(--accent-colour);
+  /* box-shadow: 9px 0px 8px -7px rgba(110, 111, 125, 1); */
+  box-shadow: 0px 170px 10px 3px rgba(110, 111, 125, 0.8);
 }
 
 .sidebar-settings {
@@ -191,18 +202,18 @@
 
   position: relative;
   top: -15px;
-
-  /* border-bottom: 1px solid #ffffffc4; */
 }
 
 .sidebar .logo p {
   font-weight: 600;
   font-size: 1.6rem;
+
+  color: var(--off-white);
 }
 
 .sidebar svg {
   width: 35px;
-  /* border: 1px solid red; */
+  color: var(--off-white);
 }
 
 .sidebar-item {
@@ -212,7 +223,7 @@
   gap: 1rem;
 
   padding-top: 1rem;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
 
   /* border: 1px solid red; */
 }
@@ -227,14 +238,142 @@
   gap: 1rem; */
 }
 
+.sidebar-item a,
+#selected {
+  color: var(--hover-colour);
+}
+
 .sidebar-item a {
-  color: #000000;
+  color: var(--off-white);
 }
 
 .sidebar-item a:hover {
-  color: #ffff;
+  color: var(--hover-colour);
 }
 
 main {
-  border: solid 1px green;
+  /* border: solid 1px green; */
+  padding: 2rem;
+}
+
+/*? ============================================================================= */
+/*? ||                              **MAIN**                                   || */
+/*? ============================================================================= */
+
+.main-grid {
+  display: grid;
+  grid-template-columns: 1fr 80px 0.5fr;
+  grid-template-rows: auto 1fr;
+}
+
+.main-grid h2 {
+  margin-left: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-grid {
+  grid-column: 1;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+
+  gap: 2rem;
+}
+
+.main-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.5rem;
+
+  background-color: #fff;
+  padding: 1rem;
+  margin: 0.5rem;
+  min-width: 280px;
+  max-width: 100%;
+  height: 80%;
+
+  border-bottom: 6px solid var(--accent-colour);
+  border-radius: 10px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.main-title {
+  grid-row: 1;
+}
+
+.title-2 {
+  grid-column: 3;
+}
+
+.main-card:hover {
+  transform: scale(1.01);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.main-card h4 {
+  font-size: 1.2rem;
+}
+
+.main-card p {
+  font-size: 1rem;
+  line-height: 1.4;
+  width: 100%;
+}
+
+.side-card-grid {
+  grid-column: 3;
+  display: grid;
+  grid-template-rows: 0.8fr auto 1fr;
+}
+
+.side-card {
+  grid-column: 2;
+  grid-row: 1;
+
+  margin: 0.5rem;
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 10px;
+
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  line-height: 1.4;
+}
+
+.side-card:hover {
+  transform: scale(1.01);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.side-card p {
+  font-size: 0.8rem;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.2rem;
+}
+
+.side-card > p:nth-last-child(n + 2) {
+  border-bottom: 2px solid var(--accent-colour);
+}
+
+.side-card h5 {
+  font-size: 1rem;
+  padding-bottom: 0.2rem;
+  padding-top: 0.2rem;
+}
+
+.side-card-2 {
+  grid-column: 2;
+  grid-row: 3;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
